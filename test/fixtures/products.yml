@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#declara productos para el test
+ps4:
+  title: PS2 Fat
+  description: PS4 sii
+  price: 199
 
-one:
-  title: MyString
-  description: MyText
-  price: 1
-
-two:
-  title: MyString
-  description: MyText
-  price: 1
+switch:
+  title: Nintendo
+  description: es el switch
+  price: 149

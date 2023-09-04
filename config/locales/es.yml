@@ -3,34 +3,57 @@ es:
     models:
       product: Producto
     attributes:
-      product:  
+      product:
         title: 'Título'
         description: 'Descripción'
-        price: 'Price'
+        price: 'Precio'
         photo: 'Foto'
     errors:
       models:
         product:
           attributes:
-            title: 
-              blank: 'No puede estar vacío'
-            description: 
-              blank: 'No puede estar vacío'
-            price: 
-              blank: 'No puede estar vacío'
+            title:
+              blank: 'no puede estar vacío'
+            description:
+              blank: 'no puede estar vacía'
+            price:
+              blank: 'no puede estar vacío'
   common:
-    confirm: 'Estas Seguro?'
+    confirm: '¿Estás seguro?'
+    back: 'Volver'
+  shared:
+    header:
+      add: 'Añadir producto'
   products:
     edit:
-      title: 'Editar Producto'
+      title: 'Editar producto'
     new:
-      title: 'Añadir Producto'
-    index: 
-      title: 'Productos'
+      title: 'Añadir producto'
+    index:
+      title: 'Productos:'
+    show:
+      edit: 'Editar producto'
+      delete: 'Borrar producto'
     create:
-      created : 'Tu producto esta creado'
+      created: 'Tu producto se ha creado correctamente'
     update:
-      updated: 'Tu producto esta actualizado'
+      updated: 'Tu producto se ha actualizado correctamente'
     destroy:
-      destroyed: 'Tu producto esta eliminado'
-    
+      destroyed: 'Tu producto se ha eliminado correctamente'
+  categories:
+    category:
+      edit: 'Editar'
+      delete: 'Borrar'
+    index:
+      title: 'Categorías'
+      new: 'Añadir categoría'
+    edit:
+      title: 'Editar categoría'
+    create:
+      created: 'Tu categoría se ha creado correctamente'
+    update:
+      updated: 'Tu categoría se ha actualizado correctamente'
+    destroy:
+      destroyed: 'Tu categoría se ha eliminado correctamente'
+    new:
+      title: 'Añadir categoría'

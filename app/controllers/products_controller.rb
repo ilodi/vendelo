@@ -43,4 +43,22 @@ class ProductsController < ApplicationController
             :price
         )
     end
+    def edit
+        @product = Product.find(
+            params[:id]
+        )
+    end
+    def update
+        @product = Product.find(
+            params[:id]
+        )
+        #si todo salio bien, o si hay un deta
+        if @product.update(product_params)
+            redirect_to products_path,
+            notice: 'Tu producto esta actualizado'
+        else
+            #:unprocessable_entity  = 422
+            render :edit, status: :unprocessable_entity 
+        end
+    end
 end

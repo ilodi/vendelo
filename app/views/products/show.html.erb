@@ -1,11 +1,11 @@
+<%= image_tag @product.photo, width: 200 %>
 <h1 class='title'><%= @product.title %></h1>
 <p class='descrption'><%= @product.description %></p>
 <span class='price'>$<%= @product.price %></span>
 <%= link_to 'Editar Producto', edit_product_path(@product) %>
 <%= link_to 'Eliminar Producto', 
-    product_path(@product),
+    product_path(@product), 
     data:{
-        turbo_method: :delete,
-        turbo_confirm: 'Estás seguro?'
-    }
-    %>
+        turbo_method: :delete, 
+        turbo_confirm: t('common.confirm')
+        }%>

@@ -1,7 +1,10 @@
-<h2>products:</h2>
+<h1><%= t('.title') %></h1>
 <% @products.each do |product| %>
   <%= link_to product_path(product.id), class:'product' do %>
+    <%#  <% if product.photo %>
+    <%# image_tag @product.photo, width: 100 if product.photo.attached?  %>
+    <%# end %>
     <h3><%= product.title %></h3>
-    <span><%= product.price %> </span>
+    <span><%= product.price %>$</span>
   <% end %>
 <% end %>

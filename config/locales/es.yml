@@ -1,0 +1,36 @@
+es:
+  activerecord:
+    models:
+      product: Producto
+    attributes:
+      product:  
+        title: 'Título'
+        description: 'Descripción'
+        price: 'Price'
+        photo: 'Foto'
+    errors:
+      models:
+        product:
+          attributes:
+            title: 
+              blank: 'No puede estar vacío'
+            description: 
+              blank: 'No puede estar vacío'
+            price: 
+              blank: 'No puede estar vacío'
+  common:
+    confirm: 'Estas Seguro?'
+  products:
+    edit:
+      title: 'Editar Producto'
+    new:
+      title: 'Añadir Producto'
+    index: 
+      title: 'Productos'
+    create:
+      created : 'Tu producto esta creado'
+    update:
+      updated: 'Tu producto esta actualizado'
+    destroy:
+      destroyed: 'Tu producto esta eliminado'
+    

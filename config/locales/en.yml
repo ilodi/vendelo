@@ -30,4 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    confirm: 'Are you sure?'
+  products:
+    edit:
+      title: 'Edit Product'
+    new:
+      title: 'Add Product'
+    index: 
+      title: 'Products'
+    create:
+      created : 'Your product is created'
+    update:
+      updated: 'Your product is up to date'
+    destroy:
+      destroyed: 'Your product is deleted'
+    
+    

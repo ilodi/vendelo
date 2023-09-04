@@ -1,12 +1,11 @@
 class ProductsController < ApplicationController
     def index
         #consula a la base de datos
-        @products = Product.all
+      @products = Product.all.with_attached_photo
+        
     end
     def show
-        @product = Product.find(
-            params[:id]
-        )
+        product
     end
     def new
         #crea una instancia con todo nill
@@ -22,7 +21,7 @@ class ProductsController < ApplicationController
         if @product.save
             #si todo bien te manda a la lista de productos
             redirect_to products_path, 
-            notice: 'Tu producto esta creado'
+            notice: t('.created')
         else 
             #si algo sale mal se limpia 
             #status: :unprocessable_entity mandara un error 422 de que no se puedo
@@ -32,18 +31,13 @@ class ProductsController < ApplicationController
     end
    
     def edit
-        @product = Product.find(
-            params[:id]
-        )
+        product
     end
     def update
-        @product = Product.find(
-            params[:id]
-        )
         #si todo salio bien, o si hay un deta
-        if @product.update(product_params)
+        if product.update(product_params)
             redirect_to products_path,
-            notice: 'Tu producto esta actualizado'
+            notice: t('.updated')
         else
             #:unprocessable_entity  = 422
             render :edit, status: :unprocessable_entity 
@@ -51,12 +45,9 @@ class ProductsController < ApplicationController
     end
     def destroy
         #buacar producto
-        @product = Product.find(
-            params[:id]
-        )
-        @product.destroy
+        product.destroy
         redirect_to products_path,
-        notice: 'Tu producto esta eliminado',
+        notice: t('.distroyed'),
         #303 reddit sin historial
         status: :see_other
     end
@@ -64,14 +55,20 @@ class ProductsController < ApplicationController
     #permitri que solo eso se
     private
     def product_params
-        params
-        .require(
+        params.require(
             :product
-        )
-        .permit(
+        ).permit(
             :title, 
             :description, 
-            :price
+            :price,
+            :photo
+        )
+    end
+    #refactorizar
+    def product
+        #en ruby no se necesita el return, ya esta implisito 
+        @product = Product.find(
+            params[:id]
         )
     end
 end

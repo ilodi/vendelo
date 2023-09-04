@@ -30,19 +30,7 @@ class ProductsController < ApplicationController
             status: :unprocessable_entity
         end
     end
-    #funcion privada/local
-    #permitri que solo eso se
-    def product_params
-        params
-        .require(
-            :product
-        )
-        .permit(
-            :title, 
-            :description, 
-            :price
-        )
-    end
+   
     def edit
         @product = Product.find(
             params[:id]
@@ -60,5 +48,30 @@ class ProductsController < ApplicationController
             #:unprocessable_entity  = 422
             render :edit, status: :unprocessable_entity 
         end
+    end
+    def destroy
+        #buacar producto
+        @product = Product.find(
+            params[:id]
+        )
+        @product.destroy
+        redirect_to products_path,
+        notice: 'Tu producto esta eliminado',
+        #303 reddit sin historial
+        status: :see_other
+    end
+     #funcion privada/local
+    #permitri que solo eso se
+    private
+    def product_params
+        params
+        .require(
+            :product
+        )
+        .permit(
+            :title, 
+            :description, 
+            :price
+        )
     end
 end

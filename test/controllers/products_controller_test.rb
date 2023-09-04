@@ -40,6 +40,7 @@ class ProductsControlllerTest < ActionDispatch::IntegrationTest
         assert_equal flash[:notice],
         'Tu producto esta creado'
     end
+
     test 'does not allows to create a new product with empty  fields' do
         post products_path, params: {
             product: {
@@ -66,6 +67,28 @@ class ProductsControlllerTest < ActionDispatch::IntegrationTest
         assert_redirected_to products_path
         assert_equal flash[:notice], 
         'Tu producto esta actualizado'
+    end
+
+    test 'does not allow to update a new with an invalid field' do
+        patch product_path(products(:switch)), params: {
+            product: {
+                price: nil
+            }
+        }
+        assert_response :unprocessable_entity
+    end
+
+    test 'can delete products' do
+        #busquemos diferencias para que al borrar veamos que 
+        #la diferencia esque uno se elimino
+        assert_difference('Product.count', -1) do
+            delete product_path(products(:switch))
+        end
+        #si todo bien te mando a la ruta principal
+        assert_redirected_to products_path
+        #te muestro un mensaje
+        assert_equal flash[:notice], 
+        'Tu producto esta eliminado'
     end
 end
 

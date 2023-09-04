@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  delete '/products/:id', to: 'products#destroy'
   #update product
   patch '/products/:id', to: 'products#update'
   post '/products', to: 'products#create'

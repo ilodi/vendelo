@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Postgres",
+            "database": "postgres",
+            "username": "lodi",
+            "password": "password"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Vendelo",
+            "database": "vendelo_development",
+            "password": "password",
+            "username": "lodi"
+        }
+    ]
+}

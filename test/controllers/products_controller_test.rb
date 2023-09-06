@@ -7,7 +7,7 @@ class ProductsControlllerTest < ActionDispatch::IntegrationTest
         #trae todo lo de la base de datos?
         #fictures/products.yml
         #ve a la clase '.', trae 2 productos
-        assert_select '.product', 2
+        assert_select '.product', 3
 
     end
 
@@ -33,7 +33,8 @@ class ProductsControlllerTest < ActionDispatch::IntegrationTest
             product: {
                 title: 'Nintendo 64',
                 description: 'Le faltan los cables',
-                price: 45
+                price: 45,
+                category_id: categories(:videogames).id
             }
         }
         assert_redirected_to products_path

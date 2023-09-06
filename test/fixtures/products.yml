@@ -4,8 +4,16 @@ ps4:
   title: PS2 Fat
   description: PS4 sii
   price: 199
+  category: videogames
 
 switch:
   title: Nintendo
   description: es el switch
   price: 149
+  category: videogames
+
+air:
+  title: MacBook Air
+  description: Le falla la batería
+  price: 299
+  category: computers

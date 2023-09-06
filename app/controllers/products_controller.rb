@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
     def index
+      @categories = Category.all
         #consula a la base de datos
-      @products = Product.all.with_attached_photo
+      @products = Product.all.with_attached_photo.order(created_at: :desc)
         
     end
     def show
@@ -61,7 +62,8 @@ class ProductsController < ApplicationController
             :title, 
             :description, 
             :price,
-            :photo
+            :photo,
+            :category_id
         )
     end
     #refactorizar

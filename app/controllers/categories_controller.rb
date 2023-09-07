@@ -4,11 +4,9 @@ class CategoriesController < ApplicationController
     @categories = Category.all.order(name: :asc)
   end
 
-
   def new
     @category = Category.new
   end
-
 
   def edit
     category
@@ -22,7 +20,7 @@ class CategoriesController < ApplicationController
       else
         render :new, status: :unprocessable_entity 
       end
- 
+
   end
 
   # PATCH/PUT /categories/1 or /categories/1.json

@@ -31,6 +31,8 @@ es:
       title: 'Añadir producto'
     index:
       title: 'Productos:'
+      min_price: 'Precio mínimo'
+      max_price: 'Precio máximo'
     show:
       edit: 'Editar producto'
       delete: 'Borrar producto'

@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
     def index
-      @categories = Category.all
+      @categories = Category.order(name: :asc)
         #consula a la base de datos
-      @products = Product.all.with_attached_photo.order(created_at: :desc)
+      @products = Product.with_attached_photo.order(created_at: :desc)
         
     end
     def show

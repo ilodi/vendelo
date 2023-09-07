@@ -15,4 +15,22 @@
  */
 *{
     font-family: 'Roboto Slab', serif;
+
+}
+
+body{
+    background-color: #f3f3f6;
+}
+
+.product{
+    background: white;
+}
+
+h1,h2,h3, p, span{
+    color: #1d1d1f;
+}
+
+a{
+    background: #86868b;
+    color: #fff;
 }

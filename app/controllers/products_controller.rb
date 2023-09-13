@@ -10,6 +10,14 @@ class ProductsController < ApplicationController
         #del tipo where. se tiene que extender products para hacer el filtro
         @products = @products.where(category_id: params[:category_id])
     end
+    if params[:min_price].present?
+      #sobre escribir la Query con el valor que se paso
+      @products = @products.where("price >= ?", params[:min_price])
+    end
+    if params[:max_price].present?
+      #sobre escribir la Query con el valor que se paso
+      @products = @products.where("price <= ?", params[:max_price])
+    end
 end
 
   def show

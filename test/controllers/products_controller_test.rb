@@ -18,6 +18,13 @@ class ProductsControlllerTest < ActionDispatch::IntegrationTest
     assert_select '.product', 1
   end
 
+  test 'render a list of products filtered by min_price and max_price' do
+    get products_path(min_price: 160, max_price: 200)
+
+    assert_response :success
+    assert_select '.product', 1
+    assert_select 'h2', 'Nintendo Switch'
+  end
   test 'render a detailed product page' do
     # ya tenemos acceso a la base de datos
     get product_path(products(:switch))
@@ -28,7 +35,7 @@ class ProductsControlllerTest < ActionDispatch::IntegrationTest
     assert_select '.descrption', 'es el switch'
     assert_select '.price', '$149'
   end
-
+ 
   test 'render a new product form' do
     get new_product_path
     assert_response :success

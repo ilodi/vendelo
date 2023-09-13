@@ -1,19 +1,17 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-#declara productos para el test
 ps4:
-  title: PS2 Fat
-  description: PS4 sii
-  price: 199
+  title: PS4 Fat
+  description: PS4 en buen estado
+  price: 150
   category: videogames
 
 switch:
-  title: Nintendo
-  description: es el switch
-  price: 149
+  title: Nintendo Switch
+  description: Le falla el lector de tarjeta SD
+  price: 195
   category: videogames
 
 air:
-  title: MacBook Air
+  title: Macbook Air
   description: Le falla la batería
-  price: 299
+  price: 250
   category: computers

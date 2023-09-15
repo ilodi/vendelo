@@ -33,6 +33,10 @@ es:
       title: 'Productos:'
       min_price: 'Precio mínimo'
       max_price: 'Precio máximo'
+      query_text: '¿Qué quieres buscar?'
+      expensive: 'Más caros'
+      cheapest: 'Más barato'
+      newest: 'Añadidos recientemente'
     show:
       edit: 'Editar producto'
       delete: 'Borrar producto'

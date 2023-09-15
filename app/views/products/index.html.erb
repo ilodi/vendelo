@@ -1,14 +1,36 @@
 <%= turbo_frame_tag 'categories' do %>
   <h1><%= t('.title') %></h1>
   <%= form_with url: products_path, method: :get do |form| %>
-    <%= form.number_field :min_price, placeholder: t('.min_price'),
+    <%= form.text_field :query_text,
+        placeholder: t('.query_text'),
+        onchange: 'this.form.requestSubmit()',
+        value: params[:query_text] %>
+    <%= form.number_field :min_price, 
+        placeholder: t('.min_price'),
         onchange: 'this.form.requestSubmit()',
         value: params[:min_price] %>
     <%= form.number_field :max_price, placeholder: t('.max_price'),
         onchange: 'this.form.requestSubmit()',
         value: params[:max_price] %>
+    <%= form.select :order_by,
+        options_for_select(
+            produts
+             Product::ORDER_BY.key.map{
+                |order| [t(".#{order}"), order]
+             },
+              params[:order_by],
+          ),
+          {},
+          {
+             onchange: 'this.form.requestSubmit()'
+          }
+           %>
   <% end %>
   <%= link_to t('.all'), products_path %>
-  <%= render partial: 'category', collection: @categories %>
-  <%= render partial: 'product', collection: @products %>
+  <%= render partial: 'category',
+      collection: @categories %>
+  <div class="products">
+    <%= render partial: 'product',
+      collection: @products %>
+  </div>
 <% end %>

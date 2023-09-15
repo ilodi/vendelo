@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     # carga paralela ..load_async
     @categories = Category.order(name: :asc).load_async
     # consula a la base de datos
-    @products = Product.with_attached_photo.order(created_at: :desc).load_async
+    @products = Product.with_attached_photo
     if params[:category_id]
         #cuando tu mandes un categori id este se filte con una consulta
         #del tipo where. se tiene que extender products para hacer el filtro
@@ -18,7 +18,18 @@ class ProductsController < ApplicationController
       #sobre escribir la Query con el valor que se paso
       @products = @products.where("price <= ?", params[:max_price])
     end
-end
+    #existe el order by
+    #el & comprueba si el parametro existe
+    #el segundo parametro de featch, por defecto si no encuentra nada
+    #retona lo mas nuevo
+    #para acceder a la constante el modelo se usan ::
+    orders_by = Product::ORDER_BY.fetch(params[:order_by]&.to_sym, Product::ORDER_BY[:newest])
+    
+
+    #extender la query
+    @products = @products.order(orders_by).load_async
+    
+  end
 
   def show
     product

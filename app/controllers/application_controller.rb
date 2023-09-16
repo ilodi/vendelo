@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+    #dar de alta en la app el paginatin
+    include Pagy::Backend
+    #
     #en cada accion cambia el idioma
     around_action :switch_locale
 

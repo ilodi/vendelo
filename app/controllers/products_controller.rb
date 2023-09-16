@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
     #para acceder a la constante el modelo se usan ::
     orders_by = Product::ORDER_BY.fetch(params[:order_by]&.to_sym, Product::ORDER_BY[:newest])
     
-
     #extender la query
     @products = @products.order(orders_by).load_async
     

@@ -12,19 +12,11 @@
     <%= form.number_field :max_price, placeholder: t('.max_price'),
         onchange: 'this.form.requestSubmit()',
         value: params[:max_price] %>
-    <%= form.select :order_by,
-        options_for_select(
-            produts
-             Product::ORDER_BY.key.map{
-                |order| [t(".#{order}"), order]
-             },
-              params[:order_by],
-          ),
-          {},
-          {
-             onchange: 'this.form.requestSubmit()'
-          }
-           %>
+    <%= form.select :order_by, 
+        options_for_select(Product::ORDER_BY.keys.map { 
+                |order| [t(".#{order}"), order] }, 
+                params[:order_by]), {}, 
+                { onChange: 'this.form.requestSubmit()' } %>
   <% end %>
   <%= link_to t('.all'), products_path %>
   <%= render partial: 'category',
